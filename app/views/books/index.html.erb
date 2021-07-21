@@ -1,5 +1,12 @@
 <h1>My Bookshelf</h1>
+
+<nav>    <%= link_to "Add a book", new_book_path %>
+</nav>
+
 <% @books.each do |book| %>
-    <p><%= book.author %>, <%= book.title %> (ISBN: <%=book.isbn%>)</p>
-    <img src="<%= book.cover_url %>">
+    <div><%= link_to image_tag(book.cover_url), book_path(book) %></div>
+<div><%= link_to "Edit", edit_book_path(book) %> | <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure?"} %></div>
+<div><%= book.author %>, <%= book.title %> (ISBN: <%=book.isbn%>)</div>
+    
     <% end %>
+

@@ -1,4 +1,6 @@
 <h1>Add a new book</h1>
+<%= link_to "Back to Bookshelf", books_url %>
+
 <%= form_for (@book) do |f| %>
 <div>
 <%=f.label :author %>
