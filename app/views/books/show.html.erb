@@ -1,5 +1,5 @@
 <nav>
-    <div><%= link_to "Back to Bookshelf", books_path %> | <%= link_to "Edit", edit_book_path %> | <%= link_to "Delete", book_path, method: :delete, data: {confirm: "Are you sure?"} %></div>
+    <div><%= link_to "Back to Bookshelf", books_path %> | <%= link_to "Edit", edit_book_path(@book) %> | <%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure?"} %></div>
 </nav>
 <div><%= @book.author %>, <%= @book.title %> (ISBN: <%= @book.isbn%>)</div>
     <%= image_tag(@book.cover_url) %>">
