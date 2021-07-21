@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.new(contact_params)
+        @book = Book.new(book_params)
         if @book.save 
             redirect_to books_url
         else 
@@ -21,17 +21,25 @@ class BooksController < ApplicationController
         end
     end
 
-    def update
+    def edit
+        @book = Book.find(params[:id])
     end
 
-    def edit
+    def update
+        @book = Book.find(params[:id])
+
+        if @book.update(book_params)
+            redirect_to book_url
+        else 
+            render :edit
+        end
     end
 
     def destroy
     end
 
     private
-    def contact_params
+    def book_params
         params.require(:book).permit(:author, :title, :isbn, :cover_url) 
     end
 
