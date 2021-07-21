@@ -1,0 +1,5 @@
+<h1>My Bookshelf</h1>
+<% @books.each do |book| %>
+    <p><%= book.author %>, <%= book.title %> (ISBN: <%=book.isbn%>)</p>
+    <img src="<%= book.cover_url %>">
+    <% end %>
